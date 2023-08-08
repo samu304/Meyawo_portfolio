@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Meyawo Landing page | Free Bootstrap 4.3.x landing page</title>
+
+    <!-- font icons -->
+    <link rel="stylesheet" href=" {% static 'vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Meyawo main styles -->
+	<link rel="stylesheet" href=" {% static 'css/meyawo.css' %}">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#">Samundra</a>         
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="{% url 'my_services' %}">Service</a>
+                </li>
+                <li class="item">
+                    <a class="link" href=" {% url 'my_work' %}">Projects</a>
+                </li>
+                <li class="item">
+                    <a class="link" href=" {% url 'my_pricing' %}">Pricing</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="{% url 'testmonials' %}">Testmonial</a>
+                </li>
+                <li class="item">
+                    <a class="link" href=" {% url 'my_blogs' %}">Blog</a>
+                </li>
+                <li class="item">
+                    <a class="link" href=" {% url 'contact_me' %}">Contact</a>
+                </li>
+                <li class="item ml-md-3">
+                    <a href=" {% url 'component' %}" class="btn btn-primary">Components</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                  <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>          
+    </nav><!-- End of Page Navbar -->
+
+    <!-- page header -->
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="header-content container">
+            <h1 class="header-title">
+                <span class="up">HI!</span>
+                <span class="down">I am Samundra</span>
+            </h1>
+            <p class="header-subtitle">Python Django Developer</p>            
+
+            <button class="btn btn-outline-primary"><a href="https://github.com/samu304?tab=repositories">Visit my Works</a></button>
+        </div>              
+    </header><!-- end of page header -->
+
+
+    <!-- pricing section -->
+    <section class="section" id="pricing">
+        <div class="container text-center">
+            <p class="section-subtitle">How Much I Charge ?</p>
+            <h6 class="section-title mb-6">My Pricing</h6>
+            <!-- row -->
+            <div class="pricing-wrapper">
+                {% for plan in plans %}
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <img class="pricing-card-icon" src=" {{plan.pic.url}}" alt="Download free bootstrap 4 ">
+                    </div>
+                    <div class="pricing-card-body">
+                        <h6 class="pricing-card-title">{{plan.type}}</h6>
+                        <div class="pricing-card-list">
+                            <p>{{plan.feature1}}</p>
+                            <p>{{plan.feature2}}</p>
+                            <p>{{plan.feature3}}</p>
+                            <p>{{plan.feature4}}</p>
+                            <p>{{plan.feature5}}</p>
+                            <p>{{plan.feature6}}</p>
+                        </div>
+                    </div>
+                    <div class="pricing-card-footer">
+                        <span>${{plan.price}}/Month</span>
+                    </div>
+                    <a href="#" class="btn btn-primary mt-3 pricing-card-btn">Get {{plan.type}}</a>
+                </div>
+                {% endfor %}
+
+
+            </div><!-- end of pricing wrapper -->
+        </div> <!-- end of container -->
+    </section><!-- end of pricing section -->
+
+<!-- footer -->
+<div class="container">
+    <footer class="footer">       
+        <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">DevCRUD</a></p>
+        <div class="social-links text-right m-auto ml-sm-auto">
+            <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+        </div>
+    </footer>
+</div> <!-- end of page footer -->
+
+<!-- core  -->
+<script src=" {% static 'vendors/jquery/jquery-3.4.1.js' %}"></script>
+<script src=" {% static 'vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+<!-- bootstrap 3 affix -->
+<script src=" {% static 'vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+<!-- Meyawo js -->
+<script src=" {% static 'js/meyawo.js' %}"></script>
+
+</body>
+</html>
